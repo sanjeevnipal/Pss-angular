@@ -38,9 +38,14 @@ export class CheckInComponent implements OnInit {
       if(this.bookingRecord.status === 'CONFIRMED') {
         this.checkinBooking(this.bookingRecord.bookingId);
       }
-      else {
+      else if(this.bookingRecord.status === 'CHECKED-IN') {
         this.showCheckedIn = true;
-      //   console.log("already checked in");
+        console.log("already checked in");
+      this.flightService.checkInData(this.bookingRecord.bookingId).subscribe(res => {
+        console.log(res);
+        this.checkinRecord = res;
+        this.passengerRecords=this.checkinRecord.bookingRecord.passenger.coPassengers;
+      })
       }
     })
   }

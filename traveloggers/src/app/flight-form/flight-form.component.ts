@@ -12,10 +12,10 @@ import { FlightServiceService } from '../flight-service.service';
 export class FlightFormComponent implements OnInit {
   searchFlightForm = this.ff.group(
     {
-      origin: ['', [Validators.required]],
-      destination: ['', [Validators.required]],
-      flightDate: ['', [Validators.required]],
-      travellers: [ , [Validators.required]]
+      origin: ['delhi', [Validators.required]],
+      destination: ['chennai', [Validators.required]],
+      flightDate: ['2021-05-26', [Validators.required]],
+      travellers: [3 , [Validators.required]]
     }
   );
 
@@ -24,7 +24,8 @@ export class FlightFormComponent implements OnInit {
       origin: ['', [Validators.required]],
       destination: ['', [Validators.required]],
       flightDate: ['', [Validators.required]],
-      flightNumber: ['', [Validators.required]]
+      flightNumber: ['', [Validators.required]],
+      travellers: [ , [Validators.required]]
     }
   );
   isSubmitted: boolean = false;
@@ -62,6 +63,7 @@ export class FlightFormComponent implements OnInit {
     if (this.searchByFlightNumberForm.valid) {
       this.flightArray = [];
       console.log('form values', this.searchByFlightNumberForm.value);
+      this.flightDataService.setPassengerCount(this.searchByFlightNumberForm.get('travellers').value);
       this.flightService.findFlightById(this.searchByFlightNumberForm.value).subscribe(res => {
         console.log(res);
         this.flightArray = [];

@@ -1,12 +1,13 @@
 <div class="container">
-    <div class="card blue-forms ">
+    <div class="card blue-forms mt-3 ">
         <div class="card-body shadow">
+            <h4 class="text-light mb-4">Search Booking</h4>
             <form [formGroup]="bookingIdForm" autocomplete="off">
                 <div class="row">
                     <div class="col-4">
                         <div class="form-group">
                             <input type="number" class="form-control form-control-sm" formControlName="bookingId"
-                                placeholder="booking id" />
+                            min="0" placeholder="booking id" />
                         </div>
                     </div>
                     <div class="col-3">

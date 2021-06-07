@@ -69,8 +69,8 @@
                             class="form-control form-control-sm" />
                     </div>
                     <div class="form-group mb-2">
-                        <input type="number" formControlName="mobileNumber" placeholder="mobile number"
-                            class="form-control form-control-sm" />
+                        <input type="number" formControlName="mobileNumber" placeholder="mobile number" min="0" max="10"
+                          maxlength="10"  class="form-control form-control-sm" />
                     </div>
                 </div>
             </div>
@@ -86,9 +86,9 @@
                     <label for="gFemale-prim " class="form-check-label text-light">Female</label>
                 </div>
             </div>
-<div class="d-flex justify-content-end">
+<!-- <div class="d-flex justify-content-end">
     <button class="darkblue-buttons btn-sm" style="color: #fff5fd" (click)="addCoPassenger()">Add co-passenger</button>
-</div>
+</div> -->
         </div>
 
         <!-- Add co-passenger -->

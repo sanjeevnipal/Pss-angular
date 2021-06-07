@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="card">
-    <div class="card-body blue-forms shadow">
+  <div class="card blue-forms mt-3">
+    <div class="card-body  shadow">
       <div class="d-flex justify-content-between mb-3">
         <h4 class="text-light">Search Flight</h4>
         <button class="darkblue-buttons btn-sm" style="color: #fff5fd" (click)="toggleForm()">
@@ -56,13 +56,13 @@
       <form *ngIf=showFlightNumberForm [formGroup]="searchByFlightNumberForm" autocomplete="off">
 
         <div class="row">
-          <div class="col-3">
+          <div class="col-2">
             <div class="form-group">
               <input type="text" class="form-control form-control-sm" formControlName="origin" [ngClass]="{'is-invalid': fb.origin.errors?.required && isSubmitted}" placeholder="origin" />
               <div class="invalid-feedback" *ngIf="fb.origin.errors?.required && isSubmitted">Origin required</div>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-2">
             <div class="form-group">
               <input type="text" class="form-control form-control-sm" formControlName="destination" [ngClass]="{'is-invalid': fb.destination.errors?.required && isSubmitted}"
                 placeholder="destination" />
@@ -84,6 +84,14 @@
                 placeholder="flightNumber" />
                 <div class="invalid-feedback" *ngIf="fb.flightNumber.errors?.required && isSubmitted">Flight number required
                 </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <input type="number" class="form-control form-control-sm" formControlName="travellers" min="0"
+                [ngClass]="{'is-invalid': fb.travellers.errors?.required && isSubmitted}" placeholder="travellers" />
+              <div class="invalid-feedback" *ngIf="fb.travellers.errors?.required && isSubmitted">Travellers required
+              </div>
             </div>
           </div>
         </div>

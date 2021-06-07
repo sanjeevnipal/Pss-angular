@@ -48,6 +48,10 @@ export class FlightServiceService {
     return this.http.post(`${this.APIURL}/${bookingId}`, bookingId);
   }
 
+  checkInData(bookingId): Observable<any> {
+    return this.http.get(`${this.APIURL}/info/${bookingId}`);
+  }
+
   cancelBooking(bookingId): Observable<any> {
     console.log(bookingId);
     return this.http.delete(`${this.API_URL}/${bookingId}`);

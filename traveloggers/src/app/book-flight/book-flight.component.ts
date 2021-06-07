@@ -66,20 +66,11 @@ export class BookFlightComponent implements OnInit {
       gender: [''],
     })
     this.coPassenger.push(newPassenger);
-    // setTimeout(()=>{
-    //   document.body.scrollTo({
-    //     top: document.body.offsetHeight,
-    //     left: 0,
-    //     behavior:'smooth'
-    //   })
-    //   console.log(document.body.offsetHeight);
-    // }, 20)
   }
 
   submitForm() {
     this.flightService.save(this.flightAllData.id, this.coPassenger.length + 1, this.bookingForm.value).subscribe(res => {
       console.log(res);
-      // this.bookingData = res;
       this.flightDataService.setFlightData(res);
     this.router.navigateByUrl("/booking");
     });
